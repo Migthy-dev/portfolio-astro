@@ -1,0 +1,43 @@
+---
+const {
+  name = "Cesar Jaramillo",
+  title = "Ingeniero en Tecnologías de la Información",
+  image = "/img/hero.jpg",
+  socialLinks = [
+    { href: "https://facebook.com", icon: "fa-facebook-f", label: "Facebook" },
+    { href: "https://twitter.com", icon: "fa-twitter", label: "Twitter" },
+    { href: "https://t.me", icon: "fa-paper-plane", label: "Telegram" },
+    { href: "https://linkedin.com", icon: "fa-linkedin-in", label: "LinkedIn" },
+  ],
+} = Astro.props;
+
+type SocialLink = {
+  href: string;
+  icon: string;
+  label: string;
+};
+---
+
+<section id="inicio" class="inicio">
+  <div class="contenido-banner">
+    <div class="contenedor-img">
+      <img src={image} alt={`Foto de ${name}`} />
+    </div>
+    <h1>{name}</h1>
+    <h2>{title}</h2>
+    <div class="redes">
+      {
+        socialLinks.map((link: SocialLink) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+          >
+            <i class={`fa-brands ${link.icon}`} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+---
+const {
+  education = [
+    {
+      title: "Desarrollo web",
+      institution: "Cursos en línea",
+      period: "2022 - Actualidad",
+      description:
+        "Continuamente busco oportunidades para ampliar mis conocimientos mediante la participación en cursos en línea relevantes, manteniéndome actualizado en las últimas tendencias y tecnologías del campo.",
+    },
+    {
+      title: "Nivel avanzado",
+      institution: "Universidad UNIDEG",
+      period: "2017 - 2021",
+      description:
+        "En mi recorrido universitario, adquirí habilidades desde los fundamentos de la programación hasta niveles avanzados. Desarrollé valores éticos, colaborativos y habilidades de comunicación.",
+    },
+    {
+      title: "Nivel intermedio",
+      institution: "Preparatoria SABES",
+      period: "2014 - 2017",
+      description:
+        "Durante mi etapa en el bachillerato, exploré las ramas fundamentales de conocimiento, adquirí una base sólida que amplió mi perspectiva y contribuyó al desarrollo de mi pensamiento crítico.",
+    },
+  ],
+  workExperience = [
+    {
+      title: "Desarrollador",
+      company: "SEDEHSU",
+      period: "2023 - Actualidad",
+      description:
+        "En mi trabajo actual, llevo acabo mantenimiento de sistemas en red, participando en proyectos nuevos, implementando políticas según normas ISO y mejores prácticas.",
+    },
+    {
+      title: "Especialista",
+      company: "Schnellecke Logistics",
+      period: "2021 - 2023",
+      description:
+        "Como especialista de IT en Schnellecke Logistics para Danone, me centré en mantener la operación ininterrumpida, dando mantenimiento y soporte a redes, computadoras y más.",
+    },
+    {
+      title: "Empleado",
+      company: "Centro de copiado la deportiva",
+      period: "2017 - 2021",
+      description:
+        "Brindé soporte y mantenimiento a computadoras, ensamblé nuevas unidades, implementé redes y facilité la formación de equipos de trabajo.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section id="curriculum" class="curriculum">
+  <div class="contenido-seccion">
+    <h2>Currículum</h2>
+    <div class="fila">
+      <!-- Educación -->
+      <div class="col izquierda">
+        <h3>Educación</h3>
+        {
+          education.map(
+            (edu: {
+              title: string;
+              institution: string;
+              period: string;
+              description: string;
+            }) => (
+              <div class="item izq">
+                <h4>{edu.title}</h4>
+                <span class="casa">{edu.institution}</span>
+                <span class="fecha">{edu.period}</span>
+                <p>{edu.description}</p>
+                <div class="conectori">
+                  <div class="circuloi" />
+                </div>
+              </div>
+            )
+          )
+        }
+      </div>
+
+      <!-- Experiencia de trabajo -->
+      <div class="col derecha">
+        <h3>Experiencia de trabajo</h3>
+        {
+          workExperience.map(
+            (job: {
+              title: string;
+              company: string;
+              period: string;
+              description: string;
+            }) => (
+              <div class="item der">
+                <h4>{job.title}</h4>
+                <span class="casa">{job.company}</span>
+                <span class="fecha">{job.period}</span>
+                <p>{job.description}</p>
+                <div class="conectord">
+                  <div class="circulod" />
+                </div>
+              </div>
+            )
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

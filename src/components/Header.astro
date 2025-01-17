@@ -1,0 +1,26 @@
+---
+const { siteName = "Cesar Jaramillo" } = Astro.props;
+---
+
+<div class="contenedor-header">
+  <header>
+    <div class="logo">
+      <a href="/">{siteName}</a>
+    </div>
+
+    <nav id="nav" aria-label="Menú de navegación">
+      <ul>
+        <li><a href="#inicio">INICIO</a></li>
+        <li><a href="#sobremi">SOBRE MI</a></li>
+        <li><a href="#skills">HABILIDADES</a></li>
+        <li><a href="#curriculum">CURRICULUM</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-responsive" aria-label="Abrir menú" aria-controls="nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+</div>

@@ -1,0 +1,87 @@
+---
+type Interest = {
+  icon: string;
+  name: string;
+};
+
+const {
+  name = "Cesar Jaramillo",
+  birthdate = "24-01-1997",
+  phone = "462 284 7901",
+  email = "cesarjaramillormz@gmail.com",
+  website = "https://cesar-jaramillo.000webhostapp.com/",
+  location = "Irapuato, Gto.",
+  position = "Programador web",
+  interests = [
+    { icon: "fa-gamepad", name: "JUEGOS" },
+    { icon: "fa-headphones", name: "MUSICA" },
+    { icon: "fa-plane", name: "VIAJAR" },
+    { icon: "fa-video-camera", name: "CINE" },
+    { icon: "fa-podcast", name: "PODCAST" },
+    { icon: "fa-history", name: "HISTORIA" },
+    { icon: "fa-puzzle-piece", name: "PUZZLE" },
+    { icon: "fa-camera", name: "FOTOS" },
+  ] as Interest[],
+  cvLink = "https://drive.google.com/file/d/1OqRCNoW1xu5k751Ti461BrxVS8Kt3leX/view?usp=sharing",
+} = Astro.props;
+---
+
+<section id="sobremi" class="sobremi">
+  <div class="contenido-seccion">
+    <h2>Sobre Mí</h2>
+    <p>
+      <span>Hola, soy {name}.</span>
+      Soy un apasionado profesional comprometido con la excelencia y el aprendizaje
+      continuo. Mi enfoque principal es la optimización, agilización y automatización
+      de tareas, lo que me permite ofrecer resultados excepcionales en mi trabajo.
+      Soy altamente responsable y siempre busco nuevas oportunidades para mejorar
+      y crecer.
+    </p>
+
+    <div class="fila">
+      <!-- datos personales -->
+      <div class="col">
+        <h3>Datos Personales</h3>
+        <ul>
+          <li><strong>Día natal</strong> {birthdate}</li>
+          <li><strong>Teléfono</strong> {phone}</li>
+          <li><strong>Email</strong> {email}</li>
+          <li>
+            <strong>Website</strong>
+            <a href={website} target="_blank" rel="noopener noreferrer"
+              >{website}</a>
+          </li>
+          <li><strong>Dirección</strong> {location}</li>
+          <li><strong>Cargo</strong> <span>{position}</span></li>
+        </ul>
+      </div>
+
+      <!-- intereses -->
+      <div class="col">
+        <h3>Intereses</h3>
+        <div class="contenedor-intereses">
+          {
+            interests.map((interest: Interest) => (
+              <div class="interes">
+                <i class={`fa-solid ${interest.icon}`} />
+                <span>{interest.name}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <button>
+      <a
+        target="_blank"
+        class="down"
+        href={cvLink}
+        aria-label={`Descargar CV de ${name}`}
+      >
+        Descargar CV
+        <i class="fa-solid fa-download" aria-hidden="true"></i>
+      </a>
+      <span class="overlay"></span>
+    </button>
+  </div>
+</section>

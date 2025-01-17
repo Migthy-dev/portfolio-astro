@@ -1,0 +1,55 @@
+---
+const {
+  technicalSkills = [
+    { name: "Javascript", level: 60 },
+    { name: "HTML & CSS", level: 60 },
+    { name: "Photoshop", level: 65 },
+    { name: "Laravel", level: 15 },
+    { name: "PHP", level: 30 }
+  ],
+  professionalSkills = [
+    { name: "Comunicación", level: 80 },
+    { name: "Trabajo en Equipo", level: 85 },
+    { name: "Creatividad", level: 90 },
+    { name: "Dedicación", level: 90 },
+    { name: "Organización", level: 85 }
+  ]
+} = Astro.props;
+---
+
+<section class="skills" id="skills">
+  <div class="contenido-seccion">
+    <h2>Habilidades</h2>
+    <div class="fila">
+      <!-- Habilidades técnicas -->
+      <div class="col">
+        <h3>Habilidades Técnicas</h3>
+        {technicalSkills.map((skill: { name: string; level: number }) => (
+          <div class="skill" data-key={skill.name}>
+            <span>{skill.name}</span>
+            <div class="barra-skill">
+              <div class="progreso" style={`width: ${skill.level}%`}>
+                <span>{skill.level}%</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Habilidades profesionales -->
+      <div class="col">
+        <h3>Habilidades Profesionales</h3>
+        {professionalSkills.map((skill: { name: string; level: number }) => (
+          <div class="skill" data-key={skill.name}>
+            <span>{skill.name}</span>
+            <div class="barra-skill">
+              <div class="progreso" style={`width: ${skill.level}%`}>
+                <span>{skill.level}%</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

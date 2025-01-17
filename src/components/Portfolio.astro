@@ -1,0 +1,65 @@
+---
+const projects = [
+  {
+    title: "Diseño Creativo",
+    description: "Fotografía",
+    imageSrc: "/img/p1.jpg",
+    alt: "Proyecto de diseño creativo 1",
+  },
+  {
+    title: "Diseño Creativo",
+    description: "Fotografía",
+    imageSrc: "/img/p2.jpg",
+    alt: "Proyecto de diseño creativo 2",
+  },
+  {
+    title: "Diseño Creativo",
+    description: "Fotografía",
+    imageSrc: "/img/p3.jpg",
+    alt: "Proyecto de diseño creativo 3",
+  },
+  {
+    title: "Diseño Creativo",
+    description: "Fotografía",
+    imageSrc: "/img/p4.jpg",
+    alt: "Proyecto de diseño creativo 4",
+  },
+  {
+    title: "Diseño Creativo",
+    description: "Fotografía",
+    imageSrc: "/img/p5.jpg",
+    alt: "Proyecto de diseño creativo 5",
+  },
+  {
+    title: "Diseño Creativo",
+    description: "Fotografía",
+    imageSrc: "/img/p6.jpg",
+    alt: "Proyecto de diseño creativo 6",
+  },
+];
+---
+
+<section id="portfolio" class="portfolio py-10">
+  <div class="contenido-seccion max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">PORTFOLIO</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6"
+    >
+      {
+        projects.map((project) => (
+          <div class="proyecto relative group">
+            <img
+              src={project.imageSrc}
+              alt={project.alt}
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+            <div class="overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-white transition-all duration-300 rounded-lg">
+              <h3 class="text-2xl font-semibold">{project.title}</h3>
+              <p class="mt-2">{project.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

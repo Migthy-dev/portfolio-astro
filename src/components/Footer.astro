@@ -1,0 +1,30 @@
+---
+const socialLinks = [
+  { href: "https://facebook.com", icon: "fa-facebook-f", label: "Facebook" },
+  { href: "https://twitter.com", icon: "fa-twitter", label: "Twitter" },
+  { href: "https://t.me", icon: "fa-paper-plane", label: "Telegram" },
+  { href: "https://linkedin.com", icon: "fa-linkedin-in", label: "LinkedIn" },
+  { href: "#", icon: "fa-rss", label: "RSS" },
+];
+---
+
+<footer>
+  <a href="#inicio" class="arriba" aria-label="Ir arriba">
+    <i class="fa-solid fa-angles-up"></i>
+  </a>
+
+  <nav class="redes">
+    {
+      socialLinks.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={link.label}
+        >
+          <i class={`fa-brands ${link.icon}`} />
+        </a>
+      ))
+    }
+  </nav>
+</footer>
